@@ -17,7 +17,7 @@ p = 29837
 c1 = 23447
 c2 = 8372
 
-def private_key (p,g,PK):
+def brute_private_key (p,g,PK):
     acc = g % p
     x = 1
     while acc != PK:
@@ -28,16 +28,15 @@ def private_key (p,g,PK):
     return x
 
 def decrypt (c1,c2,x,p):
-    sharedSecret = pow(c1,x,p)
-    s_inverse = pow(sharedSecret, p - 2, p)
+    s_inverse = pow(c1, -x, p)
     s_number = (c2 * s_inverse) % p
     print("Decrypted student number =", s_number)
     return s_number
 
 
-#Find the private key x
-priv_key = private_key(p,g,PK)
-#Decrypited student number
+# The private key x
+priv_key = brute_private_key(p,g,PK)
+# Decrypted student number
 decrypt(c1,c2,priv_key,p)
 
  
