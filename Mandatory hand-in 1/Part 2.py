@@ -14,14 +14,13 @@
 
 p = 29837
 g = 42
-PK = 22690
 c1 = 23447
 c2 = 8372
 
 original_student_number = 26000  # From part 1
 my_student_number = 111111      # chosen random student number
 
-# Reduce both values modulo p (safe habit)
+# Reduce both values modulo p
 orig = original_student_number % p
 target = my_student_number % p
 
@@ -32,7 +31,7 @@ c2_new = (c2 * factor) % p
 
 print("Modified ciphertext: c1 =", c1, ", c2 =", c2_new)
 
-#taken from part_1
+#taken from part_1 to manually compare and verify that it's correct
 def decrypt (c1,c2,p):
     x = 24774
     s_inverse = pow(c1, -x, p)

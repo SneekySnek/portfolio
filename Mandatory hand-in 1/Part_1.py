@@ -29,9 +29,9 @@ def brute_private_key (p,g,PK):
 
 def decrypt (c1,c2,x,p):
     s_inverse = pow(c1, -x, p)
-    s_number = (c2 * s_inverse) % p
-    print("Decrypted student number =", s_number)
-    return s_number
+    m = (c2 * s_inverse) % p
+    print("Decrypted student number =", m)
+    return m
 
 
 # The private key x
