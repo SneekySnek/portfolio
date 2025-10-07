@@ -7,14 +7,14 @@ import sys
 import socket
 import ssl
 
-if len(sys.argv) < 4:
-    print('Usage: python client.py "message" host port [cafile]')
+if len(sys.argv) != 4:
+    print('Usage: python client.py "message" host port')
     sys.exit(1)
 
 message = sys.argv[1]
 host = sys.argv[2]
 port = int(sys.argv[3])
-cafile = sys.argv[4] if len(sys.argv) > 4 else 'server_cert.pem'
+cafile = 'server_cert.pem'
 
 context = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
 context.check_hostname = False

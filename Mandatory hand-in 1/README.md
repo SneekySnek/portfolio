@@ -19,6 +19,7 @@ Connected, TLS: TLSv1.3
 Server reply: ACK
 ```
 
+Extra:
 Generate a self-signed server certificate/key (PowerShell, requires OpenSSL):
 
 ```powershell

@@ -24,7 +24,6 @@ with socket.socket() as sock:
         conn, addr = sock.accept()
         with context.wrap_socket(conn, server_side=True) as ssock:
             print('Connection from', addr, 'TLS:', ssock.version())
-            print('Cipher:', ssock.cipher())
             data = ssock.recv(4096)
             msg = data.decode('utf-8')
             print('Received:', msg)
